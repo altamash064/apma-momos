@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apna Momos - Best Momos in Mandsaur</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #specialties,#menu,#about,#reviews{
+            padding-top: 90px;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #e74c3c;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Home Section */
+        .home {
+            background: linear-gradient(rgba(231,76,60,0.8), rgba(231,76,60,0.8)), #f4f4f4;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .home h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .home p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .home-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #e74c3c;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #e74c3c;
+        }
+
+        /* Specialties Section */
+        .specialties {
+            background: #f8f9fa;
+            
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .specialty-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .specialty-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .specialty-item h3 {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .specialty-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Menu Section */
+        .menu {
+            background: white;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .menu-category {
+            background: #e74c3c;
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(231,76,60,0.3);
+        }
+
+        .menu-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .menu-items {
+            list-style: none;
+        }
+
+        .menu-items li {
+            padding: 0.7rem 0;
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .menu-items li:last-child {
+            border-bottom: none;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .rating {
+            color: #ffa500;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #e74c3c;
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-item p {
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .home h1 {
+                font-size: 2rem;
+            }
+
+            .home p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .home-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        
+
+        @media (max-width: 765px) {
+            #specialties,#menu,#about,#reviews{
+            padding-top: 30px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🥟 Apna Momos</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#specialties">Specialties</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <div class="container">
+            <h1>Welcome to Apna Momos</h1>
+            <p>Authentic & Delicious Momos in Mandsaur</p>
+            <div class="home-buttons">
+                <a href="#menu" class="btn btn-primary">View Menu</a>
+                <a href="https://zomato.onelink.me/xqzv/zlol9egx" class="btn btn-secondary">Order on Zomato</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties Section -->
+    <section id="specialties" class="specialties">
+        <div class="container">
+            <h2 class="section-title">Our Specialties</h2>
+            <div class="specialties-grid">
+                <div class="specialty-item">
+                    <div class="specialty-icon">🧀</div>
+                    <h3>Paneer Momos</h3>
+                    <p>Fresh cottage cheese filling with aromatic spices, perfectly steamed or fried</p>
+                </div>
+                <div class="specialty-item">
+                    <div class="specialty-icon">🧄</div>
+                    <h3>Cheese Momos</h3>
+                    <p>Creamy melted cheese wrapped in soft dough for the ultimate comfort food</p>
+                </div>
+                <div class="specialty-item">
+                    <div class="specialty-icon">🥬</div>
+                    <h3>Vegetable Momos</h3>
+                    <p>Fresh mixed vegetables with traditional seasoning, healthy and delicious</p>
+                </div>
+                <div class="specialty-item">
+                    <div class="specialty-icon">🔥</div>
+                    <h3>Kurkure Momos</h3>
+                    <p>Crispy and crunchy exterior with juicy filling - our signature specialty</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2 class="section-title">Our Menu</h2>
+            <div class="menu-grid">
+                <div class="menu-category">
+                    <h3>Paneer Momos</h3>
+                    <ul class="menu-items">
+                        <li>Paneer Steam Momos</li>
+                        <li>Paneer Fried Momos</li>
+                    </ul>
+                </div>
+                <div class="menu-category">
+                    <h3>Cheese Momos</h3>
+                    <ul class="menu-items">
+                        <li>Cheese Steam Momos</li>
+                        <li>Cheese Fried Momos</li>
+                    </ul>
+                </div>
+                <div class="menu-category">
+                    <h3>Vegetable Momos</h3>
+                    <ul class="menu-items">
+                        <li>Vegetable Steam Momos</li>
+                        <li>Vegetable Fried Momos</li>
+                    </ul>
+                </div>
+                <div class="menu-category">
+                    <h3>Kurkure Momos</h3>
+                    <ul class="menu-items">
+                        <li>Paneer Kurkure Momos</li>
+                        <li>Cheese Kurkure Momos</li>
+                        <li>Vegetable Kurkure Momos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Apna Momos</h2>
+            <div class="about-content">
+                <p>Welcome to Apna Momos, your favorite destination for authentic and delicious momos in Mandsaur! We are passionate about serving the best quality momos made with fresh ingredients and traditional recipes.</p>
+                <br>
+                <p>Located in Mandsaur, we specialize in creating mouth-watering momos that bring joy to every bite. Our specialty lies in our variety - from classic paneer and cheese momos to our signature kurkure momos, we have something for everyone.</p>
+                <br>
+                <p>At Apna Momos, we believe in quality, taste, and customer satisfaction. Every momo is prepared with care and attention to ensure you get the perfect taste every time you visit us!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section id="reviews" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Best momos in Mandsaur! The paneer momos are absolutely delicious. Fresh ingredients and great taste. Highly recommended!"</p>
+                    <div class="testimonial-author">- Rahul Sharma, Mandsaur</div>
+                </div>
+                <div class="testimonial">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Love the kurkure momos here! Perfect crispy texture and amazing flavor. My go-to place for evening snacks."</p>
+                    <div class="testimonial-author">- Priya Gupta, Local Customer</div>
+                </div>
+                <div class="testimonial">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Excellent quality and taste! The cheese momos are my favorite. Great service and reasonable prices."</p>
+                    <div class="testimonial-author">- Amit Patel, Regular Customer</div>
+                </div>
+                <div class="testimonial">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Fresh, hot, and delicious momos every time! The variety they offer is amazing. Best momo place in the city!"</p>
+                    <div class="testimonial-author">- Sneha Jain, Food Lover</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📍 Our Location</h3>
+                    <p>Sanjeet Naka<br>Mandsaur, Madhya Pradesh</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📞 Call Us</h3>
+                    <p>+91 7489089302</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📧 Email Us</h3>
+                    <p>apnamomos@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <h3>🕐 Opening Hours</h3>
+                    <p>4:30 PM - 11:30 PM<br>Daily</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Apna Momos, Mandsaur. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Simple mobile menu toggle (if needed)
+        const navLinks = document.querySelector('.nav-links');
+        const logo = document.querySelector('.logo');
+        
+        // Add simple click effect for buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-2px)';
+                }, 100);
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(231, 76, 60, 0.95)';
+            } else {
+                header.style.background = '#e74c3c';
+            }
+        });
+    </script>
+</body>
+</html>
